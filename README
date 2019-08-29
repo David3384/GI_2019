@@ -1,0 +1,38 @@
+README
+1. Data Preprocessing
+   Preprocess tweet text: preprocess.py
+   Create vocabulary set and capture vocabulary information: create_vocab.py
+   Create cross validation dataset: create_dataset.py
+   Embed sentence to vectors with word embedding: compare_embeddings.py, create_embeddings.py,
+   create_matrix_from_embeddings.py
+
+2. Model Definition, Training/Evaluation Infrastructure
+   CNN model architecture: model_def.py
+   LSTM Attention model architecture: LSTM_attn.py
+   CNN Training/Evaluation infrastructure: nn_experiment.py
+   LSTM Attention Training/Evaluation infrastructure: model.py
+   Load training/evaluation test data: data_loader.py
+   Read experiment results and calculate macro F1: read_results.py, generate_summaries_from_test_nn.py
+   Please refer to section 6 for the training/evaluation command line arguments.
+
+3. Performance Analysis
+   Evaluate average/majority-vote aggression, loss, other, macro F1-score from experiment dirs: evaluate_performance.py
+   To calculate the average/majority-vote aggression, loss, other, macro F1-score of all models,
+   run "python3 evaluate_performance.py"
+
+4. Rationale Rank Analysis
+   Leave-one-out analysis: LIME.py
+   To calculate models' rationale rank and the influence rank of stopword unigrams discussed in the paper, run
+   "python3 LIME.py"
+
+5. Adversarial Dataset Generation
+   ELMo language model implementation: bi_lm.py, ELMo.py, create_ELMo_embedding.py, embedwELMo.py
+   Generate adversarial dataset and evaluate number of flip predictions: adversarial_dataset.py
+   To generate aggression adversarial dataset for the unigrams listed in the paper, run "python3 adversarial_dataset.py"
+
+6. Evaluation of Models listed in the Paper
+   Models' experiment dir and prediction thresholds: model_info.py
+   Models' data loading format: model_test_data_loader.py
+   Script to train all models discussed in paper: train_final_models.py
+   Script to load all trained models: load_final_models.py
+   To train a model: run "python3 train_final_models.py <model_id>"
